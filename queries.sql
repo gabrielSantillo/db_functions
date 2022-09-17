@@ -31,3 +31,21 @@ inner join dealership d on d.id = fsc.dealership_id
 group by d.id
 order by d.date_established desc 
 limit 1;
+
+select count(fsc.id) 
+from for_sale_cars fsc 
+inner join dealership d on d.id = fsc.dealership_id
+group by d.id;
+
+select count(fsc.id) 
+from for_sale_cars fsc 
+inner join dealership d on d.id = fsc.dealership_id
+group by d.id
+having count(fsc.id) >= 4;
+
+select count(fsc.id) 
+from for_sale_cars fsc 
+inner join dealership d on d.id = fsc.dealership_id
+where fsc.`year` > '2020-01-01'
+group by d.id
+having count(fsc.id) >= 4; 
