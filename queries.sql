@@ -25,8 +25,9 @@ select count(fsc.id)
 from for_sale_cars fsc 
 where fsc.`year` = '2019-01-01';
 
-select count(fsc.id), d.location, d.date_established 
+select count(fsc.id), d.name, d.location 
 from for_sale_cars fsc
 inner join dealership d on d.id = fsc.dealership_id
-group by d.date_established desc
+group by d.id
+order by d.date_established desc 
 limit 1;
